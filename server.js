@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 
 app.use(express.static(__dirname + '/dist/schools-chamba-valley'));
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 
 //PATH LOCATION STARTEGY
 
@@ -13,6 +13,6 @@ app.get('/*', function(req,res){
 	res.sendFile(fullPath);
 })
 
-console.log('Server started running on..' + 3000);
+console.log('Server started running on..' + process.env.PORT || 3000);
 
 //Changed to run on Heroku
