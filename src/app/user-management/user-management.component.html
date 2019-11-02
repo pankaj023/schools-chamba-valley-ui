@@ -1,0 +1,102 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="card">
+<div class="table-content">
+    <form>
+    
+    <div class="row">
+      <div class="col-md-3 pr-1">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" class="form-control" placeholder="" [(ngModel)]="userObj.firstName" name ="firstName">
+        </div>
+      </div>
+      <div class="col-md-3 pr-1">
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" class="form-control" placeholder="" [(ngModel)]="userObj.lastName" name ="lastName">
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-3 pr-1">
+        <div class="form-group">
+          <label>City</label>
+          <input type="text" class="form-control" placeholder="" [(ngModel)]="userObj.city" name ="city">
+        </div>
+      </div>
+     
+      <div class="col-md-3 pr-1">
+        <div class="form-group">
+          <label>Postal Code</label>
+          <input type="number" class="form-control" placeholder="" [(ngModel)]="userObj.postalCode" name ="postalCode">
+        </div>
+      </div>
+      
+    </div> 
+    <div>
+        <button class="btn btn-info" (click)="getUsers()">Search</button>
+      </div>
+  </form>
+ <!-- <div> {{allUsers[0].email}}</div> --> 
+    <div class="mat-elevation-z8">
+      <div *ngIf="allUsers?.length > 0">
+      <mat-table [dataSource]="dataSource" class="table table-striped table-responsive-md btn-table">
+    
+        <ng-container matColumnDef="editProfile">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let element" (click) ="editProfile(element)"> <img class="rounded-circle" src="../assets/img/pankaj.png" alt="..."
+             width = "75px" height ="75px" style="padding:5px"/>  </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="userName">
+          <mat-header-cell *matHeaderCellDef> User Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.userName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="firstName">
+            <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.firstName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+            <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.lastName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="city">
+          <mat-header-cell *matHeaderCellDef> City </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.city}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="postalCode">
+        <mat-header-cell *matHeaderCellDef> Postal Code </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.postalCode}} </mat-cell>
+    </ng-container>
+
+        <ng-container matColumnDef="address">
+            <mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.address}} </mat-cell>
+        </ng-container>
+    
+        
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+      
+    </div>
+    </div>
+  </div>
+</div>
+
