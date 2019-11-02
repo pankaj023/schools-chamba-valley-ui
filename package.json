@@ -2,6 +2,9 @@
   "name": "schools-chamba-valley",
   "version": "1.1.0",
   "license": "MIT",
+  "engines": {
+    "node": "10.15.3" 
+  },
   "scripts": {
     "ng": "ng",
     "deploy": "ng serve",
