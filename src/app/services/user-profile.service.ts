@@ -7,7 +7,7 @@ import { catchError, mapTo, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserProfileService {
-  configUrl = 'http://localhost:8080';
+  configUrl = 'https://chamba-valley-school-back-end.herokuapp.com';
 
   constructor(private http: HttpClient) {}
 

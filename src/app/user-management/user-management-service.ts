@@ -9,7 +9,7 @@ import { User } from '../models/user.model';
 
 @Injectable()
 export class UserManagementService {
-  configUrl = 'http://localhost:8080/users/';
+  configUrl = 'https://chamba-valley-school-back-end.herokuapp.com';
   
 
   constructor(private http: HttpClient) { }

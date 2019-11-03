@@ -3,9 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { of, Observable } from 'rxjs';
 import { catchError, mapTo, tap } from 'rxjs/operators';
 import { Tokens } from '../models/tokens';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { User } from '../models/user.model';
-import { Globals } from '../globals';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +11,13 @@ import { Globals } from '../globals';
 export class AuthenticationService {
   userObj: User;
   private readonly JWT_TOKEN = 'JWT_TOKEN';
-  configUrl = 'http://localhost:8080';
+  configUrl = 'https://chamba-valley-school-back-end.herokuapp.com';
 
-  constructor(private http: HttpClient, private global: Globals) {}
+  constructor(private http: HttpClient) {}
 
   login(user: { username: string, password: string }): Observable<boolean> {
       console.log("inside AuthenticationService login");
-    return this.http.post<any>(`${this.global.configUrl}/authenticate`, user)
+    return this.http.post<any>(`${this.configUrl}/authenticate`, user)
       .pipe(
         tap(tokens => this.doLoginUser(user.username, tokens)),
         mapTo(true),

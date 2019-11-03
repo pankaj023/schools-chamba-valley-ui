@@ -14,7 +14,6 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
-import { Globals } from './globals';
 
 @NgModule({
   imports: [
@@ -34,8 +33,7 @@ import { Globals } from './globals';
     LoginComponent
   ],
   providers: [ 
-     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-     {provide: Globals}
+     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
