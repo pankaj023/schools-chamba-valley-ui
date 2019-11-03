@@ -7,13 +7,13 @@ import { catchError, mapTo, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserProfileService {
-  configUrl = 'https://chamba-valley-school-back-end.herokuapp.com';
+  configUrl = 'https://valley-schools-backend.herokuapp.com';
 
   constructor(private http: HttpClient) {}
 
   getUser(user: {username: string}): Observable<boolean> {
       console.log("inside UserProfileService service");
-    return this.http.post<any>('http://localhost:8080/hello', user)
+    return this.http.post<any>(`${this.configUrl}/hello`, user)
       .pipe(
         tap(tokens => console.log('#after getUser ' + tokens)),
         mapTo(true),

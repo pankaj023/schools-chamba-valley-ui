@@ -20,7 +20,7 @@ export class UserProfileComponent implements OnInit {
   private sub: any;
   error = '';
   loading = false;
-  configUrl = 'https://chamba-valley-school-back-end.herokuapp.com';
+  configUrl = 'https://valley-schools-backend.herokuapp.com';
 
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute, private userProfileService: UserProfileService) {
 
@@ -38,7 +38,7 @@ export class UserProfileComponent implements OnInit {
       console.log("userName2: " + this.username);
     }
 
-    this.http.get(`${this.configUrl}/users` + this.username).subscribe((result : User)=> {
+    this.http.get(`${this.configUrl}/users/` + this.username).subscribe((result : User)=> {
       this.userObj  = result; 
       console.log("this.userObj: " + this.userObj);
     })

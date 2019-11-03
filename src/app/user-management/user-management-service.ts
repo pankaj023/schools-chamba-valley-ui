@@ -9,7 +9,7 @@ import { User } from '../models/user.model';
 
 @Injectable()
 export class UserManagementService {
-  configUrl = 'https://chamba-valley-school-back-end.herokuapp.com';
+  configUrl = 'https://valley-schools-backend.herokuapp.com';
   
 
   constructor(private http: HttpClient) { }
@@ -31,7 +31,7 @@ getUsers(userObj: User): Observable<HttpResponse<User[]>> {
     .set('postalCode', userObj.postalCode);
     
     return this.http.get<User[]>(
-      this.configUrl, { observe: 'response', params
+      `${this.configUrl}/users`, { observe: 'response', params
     })
       .pipe(
                 retry(3), // retry a failed request up to 3 times

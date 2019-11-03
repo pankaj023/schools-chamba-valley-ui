@@ -11,7 +11,7 @@ import { User } from '../models/user.model';
 export class AuthenticationService {
   userObj: User;
   private readonly JWT_TOKEN = 'JWT_TOKEN';
-  configUrl = 'https://chamba-valley-school-back-end.herokuapp.com';
+  configUrl = 'https://valley-schools-backend.herokuapp.com';
 
   constructor(private http: HttpClient) {}
 
