@@ -5,6 +5,7 @@ import { catchError, mapTo, tap } from 'rxjs/operators';
 import { Tokens } from '../models/tokens';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { User } from '../models/user.model';
+import { Globals } from '../globals';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,11 @@ export class AuthenticationService {
   private readonly JWT_TOKEN = 'JWT_TOKEN';
   configUrl = 'http://localhost:8080';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private global: Globals) {}
 
   login(user: { username: string, password: string }): Observable<boolean> {
       console.log("inside AuthenticationService login");
-    return this.http.post<any>(`${this.configUrl}/authenticate`, user)
+    return this.http.post<any>(`${this.global.configUrl}/authenticate`, user)
       .pipe(
         tap(tokens => this.doLoginUser(user.username, tokens)),
         mapTo(true),
