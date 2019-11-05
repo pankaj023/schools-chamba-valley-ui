@@ -23,6 +23,7 @@ export class UserManagementService {
 //   }
 
 getUsers(userObj: User): Observable<HttpResponse<User[]>> {
+  console.log("clicked");
    
   let params = new HttpParams()
     .set('firstName', userObj.firstName)

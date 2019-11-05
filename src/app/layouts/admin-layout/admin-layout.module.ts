@@ -11,6 +11,7 @@ import { UserManagementComponent } from '../../user-management/user-management.c
 import { CdkTableModule } from '@angular/cdk/table';
 import { MatPaginatorModule, MatTableModule } from '@angular/material';
 import { HomeComponent } from '../../home/home.component';
+import { StaffManagementComponent } from '../../user-management/staff-management/staff-management.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { HomeComponent } from '../../home/home.component';
   declarations: [
     UserProfileComponent,
     UserManagementComponent,
-    HomeComponent
+    HomeComponent,
+    StaffManagementComponent
   ]
 })
 

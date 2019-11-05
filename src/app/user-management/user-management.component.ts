@@ -63,6 +63,10 @@ export class UserManagementComponent implements OnInit {
    
   }
 
+  getStaffManagement(){
+    console.log("getStaffManagement");
+    this.router.navigate(['staff-management']);
+  }
  
 }
 
